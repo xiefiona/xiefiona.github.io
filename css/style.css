@@ -1,11 +1,39 @@
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: black;
+}
+
 img {
   width: 200px;
 }
+.name {
+  clear: right;
+  text-align: center;
+  font-size: 24pt;
+}
+
+.about {
+  padding-left: 100pt;
+  padding-right: 100pt;
+}
+
 body {
   text-align: center;
   font-family: monospace;
   background: grey;
   color: white;
+  font-size: 14px;
 }
 .contact {
   text-align: center;
