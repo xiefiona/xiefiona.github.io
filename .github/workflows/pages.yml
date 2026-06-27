@@ -34,11 +34,7 @@ jobs:
           python -m pip install --upgrade pip >/dev/null 2>&1 || true
           python -m pip install requests pyyaml >/dev/null 2>&1 || true
           if [ -z "${S2_AUTHOR_ID}" ] && [ -f _data/semanticscholar.yml ]; then
-            export S2_AUTHOR_ID=$(python - <<'PY'
-import yaml,sys
-print(yaml.safe_load(open('_data/semanticscholar.yml'))['id'])
-PY
-)
+            export S2_AUTHOR_ID=$(python -c "import yaml; print(yaml.safe_load(open('_data/semanticscholar.yml'))['id'])")
           fi
           if [ -n "${S2_AUTHOR_ID}" ]; then
             python scripts/import_publications.py || echo "Importer warning (continuing build)"
