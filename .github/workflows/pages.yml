@@ -32,7 +32,7 @@ jobs:
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
         run: |
           python -m pip install --upgrade pip >/dev/null 2>&1 || true
-          python -m pip install requests pyyaml >/dev/null 2>&1
+          python -m pip install requests pyyaml >/dev/null 2>&1 || true
           if [ -z "${S2_AUTHOR_ID}" ] && [ -f _data/semanticscholar.yml ]; then
             export S2_AUTHOR_ID=$(python - <<'PY'
 import yaml,sys

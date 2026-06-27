@@ -1,0 +1,33 @@
+name: Debug Jekyll Build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ruby + Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Install Jekyll
+        run: |
+          gem install jekyll jekyll-paginate jekyll-remote-theme
+      - name: Build with trace
+        run: |
+          JEKYLL_ENV=production jekyll build --trace --verbose
+      - name: Archive _site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+      - name: Archive logs
+        run: |
+          : > build.log
+        shell: bash
