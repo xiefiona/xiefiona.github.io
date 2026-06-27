@@ -33,6 +33,8 @@ def fetch_author_pubs(author_id: str, api_key: str | None = None) -> Dict[str, A
     if api_key:
         headers["x-api-key"] = api_key
     r = requests.get(url, params={"fields": fields, "limit": 1000}, headers=headers, timeout=30)
+    if r.status_code == 429:
+        raise RuntimeError("Semantic Scholar rate limited (429). Try again later or add S2_API_KEY.")
     r.raise_for_status()
     return r.json()
 
@@ -79,8 +81,12 @@ def main() -> int:
         print("S2_AUTHOR_ID is required", file=sys.stderr)
         return 2
     api_key = os.environ.get("S2_API_KEY")
-    data = fetch_author_pubs(author_id, api_key)
-    papers = data.get("papers", [])
+    try:
+        data = fetch_author_pubs(author_id, api_key)
+        papers = data.get("papers", [])
+    except Exception as e:
+        print(f"Warning: publication import skipped: {e}", file=sys.stderr)
+        return 0
     yaml_text = to_yaml(papers)
 
     out_path = os.path.join("_data", "publications.yml")
@@ -92,4 +98,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

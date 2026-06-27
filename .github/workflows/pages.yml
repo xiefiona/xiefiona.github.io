@@ -25,14 +25,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Import publications from Semantic Scholar
+      - name: Import publications from Semantic Scholar (best-effort)
         # Prefer repo variable; else fall back to data file `_data/semanticscholar.yml`
         env:
           S2_AUTHOR_ID: ${{ vars.S2_AUTHOR_ID }}
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install requests pyyaml
+          python -m pip install --upgrade pip >/dev/null 2>&1 || true
+          python -m pip install requests pyyaml >/dev/null 2>&1
           if [ -z "${S2_AUTHOR_ID}" ] && [ -f _data/semanticscholar.yml ]; then
             export S2_AUTHOR_ID=$(python - <<'PY'
 import yaml,sys
@@ -41,7 +41,7 @@ PY
 )
           fi
           if [ -n "${S2_AUTHOR_ID}" ]; then
-            python scripts/import_publications.py
+            python scripts/import_publications.py || echo "Importer warning (continuing build)"
           else
             echo "No S2_AUTHOR_ID provided; skipping import"
           fi
