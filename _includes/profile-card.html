@@ -1,0 +1,8 @@
+<section class="profile-card">
+  <img class="avatar" src="{{ '/assets/images/headshot.jpg' | relative_url }}" alt="Portrait of {{ site.author.name }}" onerror="this.style.display='none'" />
+  <div class="meta">
+    <h1>{{ site.author.name }}</h1>
+    <p>{{ site.description }}</p>
+    {% include social-badges.html %}
+  </div>
+</section>

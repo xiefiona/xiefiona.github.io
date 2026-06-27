@@ -1,0 +1,7 @@
+<div class="social-badges">
+  {% for s in site.data.social %}
+    {% if s.url and s.url != '' %}
+      <a class="badge" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>
+    {% endif %}
+  {% endfor %}
+</div>

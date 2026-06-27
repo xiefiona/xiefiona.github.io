@@ -1,0 +1,19 @@
+<section class="pub-list">
+  {% for year in site.data.publications %}
+    <h3 class="pub-year">{{ year.year }}</h3>
+    <ul>
+    {% for p in year.entries %}
+      <li class="pub-item">
+        <span class="pub-title">{{ p.title }}</span>
+        <span class="pub-authors">{{ p.authors }}</span>
+        <span class="pub-venue">{{ p.venue }}</span>
+        <span class="pub-links">
+          {% if p.links.pdf %}<a href="{{ p.links.pdf }}">PDF</a>{% endif %}
+          {% if p.links.code %} · <a href="{{ p.links.code }}">Code</a>{% endif %}
+          {% if p.links.doi %} · <a href="{{ p.links.doi }}">DOI</a>{% endif %}
+        </span>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+</section>

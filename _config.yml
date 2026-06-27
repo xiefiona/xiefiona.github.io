@@ -1,0 +1,41 @@
+# Site settings
+url: https://xiefiona.github.io
+baseurl: ""  # user site uses root
+
+title: "Fiona Xie"
+description: "PhD Student in Computer Science"
+permalink: pretty
+paginate: 5
+paginate_path: "/page:num/"
+
+# Use Pixyll via GitHub remote_theme
+remote_theme: johno/pixyll
+plugins:
+  - jekyll-paginate
+  - jekyll-remote-theme
+
+# Author info
+author:
+  name: "Fiona Xie"
+  email: ""
+  twitter: "xiefiona"
+  github: "xiefiona"
+  scholar: ""
+  linkedin: ""
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Collections (optional)
+collections:
+  posts:
+    output: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md

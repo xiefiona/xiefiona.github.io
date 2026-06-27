@@ -1,0 +1,15 @@
+- name: Email
+  icon: envelope
+  url: "mailto:"
+- name: Google Scholar
+  icon: graduation-cap
+  url: ""
+- name: GitHub
+  icon: github
+  url: https://github.com/xiefiona
+- name: Twitter
+  icon: twitter
+  url: https://twitter.com/xiefiona
+- name: LinkedIn
+  icon: linkedin
+  url: ""

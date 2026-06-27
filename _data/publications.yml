@@ -1,0 +1,22 @@
+- year: 2026
+  entries:
+    - title: "Example Paper Title: Efficient XYZ for LLMs"
+      authors: "F. Xie, A. Collaborator"
+      venue: "NeurIPS"
+      links:
+        pdf: "#"
+        code: "#"
+        doi: "#"
+    - title: "Another Work on Systems and ML"
+      authors: "F. Xie, B. Coauthor"
+      venue: "SIGOPS"
+      links:
+        pdf: "#"
+        code: "#"
+- year: 2025
+  entries:
+    - title: "Robust Widget Scheduling"
+      authors: "F. Xie, C. Advisor"
+      venue: "ICML Workshop"
+      links:
+        pdf: "#"
