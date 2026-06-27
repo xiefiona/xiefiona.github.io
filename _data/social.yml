@@ -7,9 +7,6 @@
 - name: GitHub
   icon: github
   url: https://github.com/xiefiona
-- name: Twitter
-  icon: twitter
-  url: https://twitter.com/xiefiona
 - name: LinkedIn
   icon: linkedin
-  url: ""
+  url: "https://www.linkedin.com/in/fiona-xie/"

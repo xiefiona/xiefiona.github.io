@@ -18,10 +18,9 @@ plugins:
 author:
   name: "Fiona Xie"
   email: ""
-  twitter: "xiefiona"
   github: "xiefiona"
   scholar: "https://scholar.google.com/citations?user=oBYIW8AAAAAJ&hl=en"
-  linkedin: ""
+  linkedin: "https://www.linkedin.com/in/fiona-xie/"
 
 # Build settings
 markdown: kramdown

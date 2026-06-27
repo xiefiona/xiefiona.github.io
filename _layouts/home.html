@@ -9,17 +9,21 @@ layout: default
     <h2>Research Overview</h2>
     <p>Short blurb about your research focus, interests, and lab.</p>
 
-    <h2>Selected Publications</h2>
-    {% include pub-list.html %}
+    {% if site.data.publications and site.data.publications.size > 0 %}
+      <h2>Selected Publications</h2>
+      {% include pub-list.html %}
+    {% endif %}
 
-    <h2>Latest Posts</h2>
-    <ul>
-      {% for post in site.posts limit:3 %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <span class="post-date">{{ post.date | date: '%b %e, %Y' }}</span>
-        </li>
-      {% endfor %}
-    </ul>
+    {% if site.posts.size > 0 %}
+      <h2>Latest Posts</h2>
+      <ul>
+        {% for post in site.posts limit:3 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="post-date">{{ post.date | date: '%b %e, %Y' }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </section>
 </div>
