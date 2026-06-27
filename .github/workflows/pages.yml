@@ -26,6 +26,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Import publications from Semantic Scholar
+        if: ${{ vars.S2_AUTHOR_ID != '' }}
         env:
           S2_AUTHOR_ID: ${{ vars.S2_AUTHOR_ID }}
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
